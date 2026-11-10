@@ -1,0 +1,416 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madina Bake Chicken | Taste You Love</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+ scroll-behavior:smooth;
+}
+
+:root {
+ --gold:#e6ae42;
+ --dark:#111;
+ --red:#a71919;
+ --white:#fff;
+}
+
+body {
+ background:#101010;
+ color:white;
+ font-family:'Poppins',sans-serif;
+ overflow-x:hidden;
+}
+
+header {
+ position:fixed;
+ top:0;
+ width:100%;
+ padding:18px 7%;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ background:rgba(0,0,0,.92);
+ z-index:1000;
+ border-bottom:1px solid #a77a32;
+}
+
+.logo {
+ font-family:'Playfair Display',serif;
+ color:var(--gold);
+ font-size:25px;
+ font-weight:800;
+}
+
+nav a {
+ color:white;
+ text-decoration:none;
+ margin-left:25px;
+ font-size:14px;
+ transition:.3s;
+}
+
+nav a:hover {color:var(--gold);}
+
+.hero {
+ min-height:100vh;
+ display:flex;
+ align-items:center;
+ padding:120px 8% 60px;
+ background:
+ linear-gradient(90deg,rgba(0,0,0,.94),rgba(0,0,0,.35)),
+ url('https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=1800') center/cover;
+}
+
+.hero-content {max-width:650px;}
+
+.hero h1 {
+ font-family:'Playfair Display',serif;
+ font-size:clamp(45px,7vw,82px);
+ line-height:1.12;
+ margin-bottom:20px;
+}
+
+.hero h1 span {color:var(--gold);}
+
+.hero p {
+ color:#ddd;
+ line-height:1.8;
+ margin-bottom:30px;
+}
+
+.btn {
+ display:inline-block;
+ padding:14px 30px;
+ background:var(--gold);
+ color:#111;
+ text-decoration:none;
+ font-weight:700;
+ border-radius:5px;
+ transition:.3s;
+}
+
+.btn:hover {
+ background:white;
+ transform:translateY(-4px);
+}
+
+section {padding:90px 8%;}
+
+.section-title {
+ text-align:center;
+ font-family:'Playfair Display',serif;
+ font-size:42px;
+ color:var(--gold);
+ margin-bottom:15px;
+}
+
+.subtitle {
+ text-align:center;
+ color:#bbb;
+ margin-bottom:45px;
+}
+
+.about {
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ align-items:center;
+ gap:45px;
+}
+
+.about img {
+ width:100%;
+ border-radius:15px;
+ box-shadow:0 10px 35px #000;
+}
+
+.about h2 {
+ font-family:'Playfair Display',serif;
+ font-size:38px;
+ margin-bottom:20px;
+ color:var(--gold);
+}
+
+.about p {
+ color:#ccc;
+ line-height:1.9;
+}
+
+.menu-grid {
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+ gap:25px;
+}
+
+.food-card {
+ background:#1b1b1b;
+ border-radius:13px;
+ overflow:hidden;
+ border:1px solid #333;
+ transition:.4s;
+}
+
+.food-card:hover {
+ transform:translateY(-10px);
+ border-color:var(--gold);
+ box-shadow:0 10px 30px #000;
+}
+
+.food-card img {
+ width:100%;
+ height:210px;
+ object-fit:cover;
+}
+
+.food-info {padding:22px;}
+
+.food-info h3 {
+ font-family:'Playfair Display',serif;
+ font-size:23px;
+ margin-bottom:10px;
+}
+
+.food-info p {
+ color:#aaa;
+ font-size:13px;
+ line-height:1.6;
+}
+
+.price {
+ color:var(--gold);
+ font-size:21px;
+ font-weight:700;
+ margin-top:15px;
+}
+
+.order-btn {
+ display:inline-block;
+ margin-top:15px;
+ background:#168b48;
+ padding:10px 17px;
+ border-radius:5px;
+ color:white;
+ text-decoration:none;
+ font-size:13px;
+}
+
+.special {
+ text-align:center;
+ background:linear-gradient(120deg,#761616,#171717);
+ border-radius:15px;
+ padding:65px 20px;
+}
+
+.special h2 {
+ font-family:'Playfair Display',serif;
+ font-size:40px;
+ color:var(--gold);
+ margin-bottom:15px;
+}
+
+.gallery-grid {
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+ gap:15px;
+}
+
+.gallery-grid img {
+ width:100%;
+ height:230px;
+ object-fit:cover;
+ border-radius:10px;
+ transition:.4s;
+}
+
+.gallery-grid img:hover {transform:scale(1.04);}
+
+.contact {
+ background:#1b1b1b;
+ text-align:center;
+ border-top:1px solid #49391e;
+}
+
+.contact p {
+ color:#ccc;
+ margin:12px;
+}
+
+footer {
+ background:#080808;
+ text-align:center;
+ padding:25px;
+ color:#aaa;
+ font-size:13px;
+}
+
+footer span {color:var(--gold);}
+
+.whatsapp {
+ position:fixed;
+ bottom:25px;
+ right:25px;
+ background:#20bd5a;
+ color:white;
+ text-decoration:none;
+ padding:15px 20px;
+ border-radius:50px;
+ font-weight:700;
+ z-index:999;
+ box-shadow:0 5px 20px #000;
+}
+
+.reveal {
+ opacity:0;
+ transform:translateY(35px);
+ transition:all .8s ease;
+}
+
+.reveal.show {
+ opacity:1;
+ transform:translateY(0);
+}
+
+@media(max-width:768px) {
+ header {padding:15px 5%;}
+ .logo {font-size:19px;}
+ nav a {margin-left:9px;font-size:11px;}
+ .hero {background-position:center;}
+ .about {grid-template-columns:1fr;}
+ section {padding:70px 6%;}
+ .section-title {font-size:34px;}
+ .special h2 {font-size:30px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="logo">MADINA BAKE CHICKEN</div>
+ <nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#menu">Menu</a>
+  <a href="#contact">Contact</a>
+ </nav>
+</header>
+
+<section class="hero" id="home">
+ <div class="hero-content reveal">
+  <h1>Delicious Taste.<br><span>Unforgettable Moments.</span></h1>
+  <p>Welcome to Madina Bake Chicken. Enjoy delicious chicken, amazing flavours and a memorable food experience with every bite.</p>
+  <a href="#menu" class="btn">Explore Our Menu →</a>
+ </div>
+</section>
+
+<section id="about" class="reveal">
+ <div class="about">
+  <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=900" alt="Delicious chicken">
+  <div>
+   <h2>Welcome To Madina Bake Chicken</h2>
+   <p>We believe great food brings people together. Visit Madina Bake Chicken and enjoy delicious flavours, freshly prepared food and a wonderful dining experience.</p>
+   <br>
+   <a href="#menu" class="btn">Discover More</a>
+  </div>
+ </div>
+</section>
+
+<section id="menu">
+ <h2 class="section-title">Our Delicious Menu</h2>
+ <p class="subtitle">Fresh Flavours. Amazing Taste.</p>
+
+ <div class="menu-grid">
+
+  <div class="food-card reveal">
+   <img src="https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=700" alt="Chicken">
+   <div class="food-info">
+    <h3>Bake Chicken</h3>
+    <p>Enjoy our delicious chicken speciality.</p>
+    <div class="price">₹ Add Price</div>
+    <a href="#contact" class="order-btn">Order Now</a>
+   </div>
+  </div>
+
+  <div class="food-card reveal">
+   <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=700" alt="Chicken curry">
+   <div class="food-info">
+    <h3>Chicken Curry</h3>
+    <p>Rich flavour and delicious spices.</p>
+    <div class="price">₹ Add Price</div>
+    <a href="#contact" class="order-btn">Order Now</a>
+   </div>
+  </div>
+
+  <div class="food-card reveal">
+   <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=700" alt="Chicken wings">
+   <div class="food-info">
+    <h3>Crispy Chicken</h3>
+    <p>Crunchy outside and delicious inside.</p>
+    <div class="price">₹ Add Price</div>
+    <a href="#contact" class="order-btn">Order Now</a>
+   </div>
+  </div>
+
+ </div>
+</section>
+
+<section class="reveal">
+ <div class="special">
+  <h2>Love Chicken? Love Madina!</h2>
+  <p>Come and enjoy delicious food with your friends and family.</p>
+  <br>
+  <a href="#contact" class="btn">Visit Us Today</a>
+ </div>
+</section>
+
+<section id="gallery">
+ <h2 class="section-title">Food Gallery</h2>
+ <p class="subtitle">A glimpse of deliciousness</p>
+ <div class="gallery-grid">
+  <img src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=600" alt="Chicken dish">
+  <img src="https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=600" alt="Roasted chicken">
+  <img src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=600" alt="Chicken meal">
+  <img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=600" alt="Food plate">
+ </div>
+</section>
+
+<section id="contact" class="contact">
+ <h2 class="section-title">Visit Madina Bake Chicken</h2>
+ <p>📍 Address: Add Your Restaurant Address</p>
+ <p>📞 Phone: Add Your Phone Number</p>
+ <p>🕒 Opening Hours: Add Timing Here</p>
+ <br>
+ <a href="#" class="btn">Get Directions</a>
+</section>
+
+<footer>
+ <p>© 2026 <span>Madina Bake Chicken</span>. All Rights Reserved.</p>
+ <p>Made with ❤️ for Chicken Lovers</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/91XXXXXXXXXX" target="_blank">WhatsApp Order</a>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+ entries.forEach(entry => {
+  if(entry.isIntersecting) {
+   entry.target.classList.add('show');
+  }
+ });
+}, {threshold:0.12});
+
+document.querySelectorAll('.reveal').forEach(el => {
+ observer.observe(el);
+});
+</script>
+
+</body>
+</html>
